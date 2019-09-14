@@ -5,6 +5,7 @@ import {
 } from './actions'
 
 import { combineReducers } from 'redux'
+import { actionTypes } from 'redux-firestore'
 
 const initial_state = {
     rides: [],
@@ -24,7 +25,8 @@ function rides(state = [], action) {
                     departure_time: action.departure_time,
                     destination: action.destination,
                     driver: action.driver,
-                    riders: action.riders
+                    riders: action.riders,
+                    stops: actionTypes.stops
                 }
             ]
         case ADD_RIDER:
