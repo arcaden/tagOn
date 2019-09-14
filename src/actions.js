@@ -1,9 +1,9 @@
-export const ADD_USER = 'ADD_USER'
+export const CREATE_USER = 'CREATE_USER'
 export const CREATE_RIDE = 'CREATE_RIDE'
 export const ADD_RIDER = 'ADD_RIDER'
 
-export function addUser(user) {
-    return { type: ADD_TODO, user }
+export function createUser(user) {
+    return { type: CREATE_USER, user }
 }
 
 export function createRide(ride) {

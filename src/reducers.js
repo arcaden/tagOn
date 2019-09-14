@@ -1,8 +1,10 @@
 import {
-    ADD_USER,
+    CREATE_USER,
     CREATE_RIDE,
     ADD_RIDER,
 } from './actions'
+
+import { combineReducers } from 'redux'
 
 const initial_state = {
     rides: [],
@@ -50,20 +52,11 @@ function users(state = [], action) {
             return state
     }
 
+    const tagOn = combineReducers({
+        users,
+        rides
+    })
 
-    function tagOn(state = initial_state, action) {
-        switch (action.type) {
-            case CREATE_USER:
-                return Object.assign({}, state, {
-                    users: users(state.users, action)
-                })
-            case CREATE_RIDE:
-                return Object.assign({}, rides(state.rides, action))
-            case ADD_RIDER:
-                return Object.assign({}, rides(state.rides, action))
-        }
-        return state
-    }
-
+    export default tagOn
 }
 
