@@ -20,11 +20,29 @@ class Firebase {
 
     //User authorization logic
     doCreateUserWithEmailAndPassword = (email, password) => {
-        this.auth.createUserWithEmailAndPassword(email, password);
+        this.auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+
+            if (errorCode === 'auth/weak-password') {
+                alert("Weak Password");
+            } else {
+                alert(errorMessage)
+            }
+        });
     }
 
     doSignInWithEmailAndPassword = (email, password) => {
-        this.auth.signInWithEmailAndPassword(email, password);
+        this.auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+
+            if (errorCode === 'auth/wrong-password') {
+                alert("Wrong Password")
+            } else {
+                alert(errorMessage);
+            }
+        });
     }
 
     doSignOut = () => {
