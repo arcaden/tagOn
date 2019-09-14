@@ -13,6 +13,3 @@ export function createRide(ride) {
 export function addRider(user, ride) {
     return { type: ADD_RIDER, ride }
 }
-
-
-
