@@ -17,6 +17,9 @@ function rides(state = [], action) {
             return [
                 ...state,
                 {
+                    ride_id: action.id,
+                    ride_title: action.ride_title,
+                    ride_description: action.ride_description,
                     departure: action.departure,
                     departure_time: action.departure_time,
                     destination: action.destination,
